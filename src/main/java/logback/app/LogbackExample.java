@@ -10,7 +10,11 @@ import org.slf4j.LoggerFactory;
 public class LogbackExample {
     private static final Logger logger = LoggerFactory.getLogger(LogbackExample.class);
 
-    public static void main(String[] args) {
+    private LogbackExample() {
+        throw new IllegalStateException();
+    }
+
+    public static void basicLog() {
         logger.info("Example log from {}", LogbackExample.class.getSimpleName());
     }
 }
