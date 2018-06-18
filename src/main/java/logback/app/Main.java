@@ -1,7 +1,5 @@
 package logback.app;
 
-import static logback.app.Main.Mode.LOGGING_HIERARCHY;
-
 /**
  * @author rumman
  * @since 6/17/18
@@ -10,11 +8,12 @@ public class Main {
 
     enum Mode {
         LOGGING_BASIC,
-        LOGGING_HIERARCHY
+        LOGGING_HIERARCHY,
+        LOGGING_PARAMETERIZED_MSG,
     }
 
     public static void main(String[] args) {
-        Mode mode = LOGGING_HIERARCHY;
+        Mode mode = Mode.LOGGING_PARAMETERIZED_MSG;
 
         switch (mode) {
             case LOGGING_BASIC:
@@ -24,6 +23,11 @@ public class Main {
             case LOGGING_HIERARCHY:
                 LogbackHierarchy.testEffectiveLevel();
                 LogbackHierarchy.testLogHierarchy();
+                break;
+
+            case LOGGING_PARAMETERIZED_MSG:
+                LogbackParameterizedMessage.concatOptions();
+                LogbackParameterizedMessage.otherParamOptions();
                 break;
 
             default:
