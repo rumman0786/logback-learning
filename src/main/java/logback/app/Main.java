@@ -1,6 +1,5 @@
 package logback.app;
 
-import static logback.app.Main.Mode.LOGGING_BASIC;
 import static logback.app.Main.Mode.LOGGING_HIERARCHY;
 
 /**
@@ -23,7 +22,8 @@ public class Main {
                 break;
 
             case LOGGING_HIERARCHY:
-                LogbackHierarchy.testLogConfig();
+                LogbackHierarchy.testEffectiveLevel();
+                LogbackHierarchy.testLogHierarchy();
                 break;
 
             default:
