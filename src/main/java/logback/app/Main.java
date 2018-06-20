@@ -10,10 +10,11 @@ public class Main {
         LOGGING_BASIC,
         LOGGING_HIERARCHY,
         LOGGING_PARAMETERIZED_MSG,
+        LOGGING_HIERARCHY_LEVEL_FROM_CONFIG
     }
 
     public static void main(String[] args) {
-        Mode mode = Mode.LOGGING_PARAMETERIZED_MSG;
+        Mode mode = Mode.LOGGING_HIERARCHY_LEVEL_FROM_CONFIG;
 
         switch (mode) {
             case LOGGING_BASIC:
@@ -28,6 +29,10 @@ public class Main {
             case LOGGING_PARAMETERIZED_MSG:
                 LogbackParameterizedMessage.concatOptions();
                 LogbackParameterizedMessage.otherParamOptions();
+                break;
+
+            case LOGGING_HIERARCHY_LEVEL_FROM_CONFIG:
+                LogbackHierarchyLevelFromConfig.testLogLevel();
                 break;
 
             default:
