@@ -11,11 +11,12 @@ public class Main {
         LOGGING_HIERARCHY,
         LOGGING_PARAMETERIZED_MSG,
         LOGGING_HIERARCHY_LEVEL_FROM_CONFIG,
+        SIFTING_APPENDER,
         TIMEZONE
     }
 
     public static void main(String[] args) {
-        Mode mode = Mode.LOGGING_HIERARCHY_LEVEL_FROM_CONFIG;
+        Mode mode = Mode.SIFTING_APPENDER;
 
         switch (mode) {
             case LOGGING_BASIC:
@@ -34,6 +35,11 @@ public class Main {
 
             case LOGGING_HIERARCHY_LEVEL_FROM_CONFIG:
                 LogbackHierarchyLevelFromConfig.testLogLevel();
+                break;
+
+            case SIFTING_APPENDER:
+                LogbackSiftingAppenderConfig.testThreadOne();
+                LogbackSiftingAppenderConfig.testThreadTwo();
                 break;
 
             case TIMEZONE:

@@ -39,12 +39,31 @@
         </encoder>
     </appender>
 
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>username</key>
+            <defaultValue>unknown</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="FILE-${username}" class="ch.qos.logback.core.FileAppender">
+                <file>${LOG_DIR}/user-${username}.log</file>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>%d{HH:mm:ss:SSS} | %-5level | %thread | %logger{20} | %msg%n%rEx</pattern>
+                </layout>
+            </appender>
+        </sift>
+    </appender>
+
     <root level="debug">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="ROLLING_FILE" />
     </root>
 
     <logger name="com.baeldung.logback" level="INFO" />
+
+    <logger name="com.baeldung.logback.sift" level="DEBUG">
+        <appender-ref ref="SIFT" />
+    </logger>
 
     <logger name="com.baeldung.logback.tests" level="WARN" additivity="false">
         <appender-ref ref="FILE" />
