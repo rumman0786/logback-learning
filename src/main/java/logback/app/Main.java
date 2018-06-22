@@ -10,11 +10,12 @@ public class Main {
         LOGGING_BASIC,
         LOGGING_HIERARCHY,
         LOGGING_PARAMETERIZED_MSG,
-        LOGGING_HIERARCHY_LEVEL_FROM_CONFIG
+        LOGGING_HIERARCHY_LEVEL_FROM_CONFIG,
+        TIMEZONE
     }
 
     public static void main(String[] args) {
-        Mode mode = Mode.LOGGING_HIERARCHY_LEVEL_FROM_CONFIG;
+        Mode mode = Mode.TIMEZONE;
 
         switch (mode) {
             case LOGGING_BASIC:
@@ -33,6 +34,10 @@ public class Main {
 
             case LOGGING_HIERARCHY_LEVEL_FROM_CONFIG:
                 LogbackHierarchyLevelFromConfig.testLogLevel();
+                break;
+
+            case TIMEZONE:
+                TimeZoneTest.findCurrentDate();
                 break;
 
             default:
