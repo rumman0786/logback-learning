@@ -19,10 +19,12 @@
 
     <root level="debug">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="FILE" />
     </root>
 
     <logger name="com.baeldung.logback" level="INFO" />
-    <logger name="com.baeldung.logback.tests" level="WARN" />
+
+    <logger name="com.baeldung.logback.tests" level="WARN" additivity="false">
+        <appender-ref ref="FILE" />
+    </logger>
 
 </configuration>

@@ -15,7 +15,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Mode mode = Mode.TIMEZONE;
+        Mode mode = Mode.LOGGING_HIERARCHY_LEVEL_FROM_CONFIG;
 
         switch (mode) {
             case LOGGING_BASIC:
